@@ -40,7 +40,7 @@ require("./assets/main.scss")
 const router = new VueRouter({
   mode: "history",
   routes: [
-    { path: "/login", component: Login },
+    { path: "/", component: Login },
     { path: "/data", component: Data },
   ],
 });

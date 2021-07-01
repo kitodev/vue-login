@@ -27,18 +27,6 @@ app.get('/data', verifyToken, (req, res)=> {
     }
 })
 
-/*app.post('/posts', verifyToken, (req, res) => {
-    jwt.verify(req.token, 'secretkey', (err, authData) => {
-        if(err) {
-            res.sendStatus(403);
-        } else {
-            res.json({
-                message: 'post created',
-            });
-        }
-    });
-});*/
-
 app.post('/login', (req, res) => {
     const USERNAME = "admin";
     const PASSWORD = "Admin123";
@@ -63,16 +51,6 @@ app.post('/login', (req, res) => {
             message: "invalid login information"
         });
     }
-    /*const user = {
-        user: 'admin',
-        password: 'Admin123'
-    }
-
-    jwt.sign({user: user}, 'secretkey', (err, token) => {
-        res.json({
-            token
-        })
-    });*/
 })
 
 function verifyToken(req, res, next) {

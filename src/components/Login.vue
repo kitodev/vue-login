@@ -1,5 +1,5 @@
 <template>
-  <section class="hero  is-fullheight">
+  <section class="hero is-fullheight">
         <div class="field-body">
             <div class="container has-text-left">
                 <div class="column is-4 is-offset-4">
@@ -21,7 +21,7 @@
                               <label class="label">Password</label>
                               <input class="input" type="password" v-model="password" placeholder="">
                             </div>
-                            <span class="error" v-if="errors">{{errors}}</span>
+                            <span class="error" v-if="errors">{{ errors }}</span>
                             <hr class="login-hr">
                             <button class="button is-black is-block">Login <i class="fa fa-sign-in" aria-hidden="true"></i></button>
                         </form>
@@ -41,7 +41,7 @@ export default {
     return {
       username: '',
       password: '',
-      errors: [],
+      errors: "",
     }
   },
   methods: {
@@ -49,7 +49,7 @@ export default {
     async login(e) {
         e.preventDefault();
         if(this.username !== '' && this.password !== '') {
-          if(this.username === this.username && this.password === this.password) {
+          if(this.username == 'admin' && this.password == 'Admin123') {
             const respons = await fetch('http://localhost:3000/login', {
               method: 'POST',
               headers: {
@@ -66,14 +66,12 @@ export default {
             this.setToken(token);
             this.$router.push('/data');
         } else {
-          this.errors = [];
-          console.log(this.errors);
-          this.errors.push("Hibaüzenet")
+         
+          this.errors = "Felhasználónév és jelszó helytelen";
         }
       } else {
-          this.errors = [];
-          console.log(this.errors);
-          this.errors.push("Hibaüzenet")
+
+          this.errors = "Hibaüzenet";
       }
     }
   },

@@ -11,8 +11,8 @@
             </thead>
             <tbody>
                   <tr v-for="(data, i) in userData" :key="i">
-                  <td>{{data.id}}</td>
-                  <td>{{data.text}}</td>
+                  <td>{{ data.id }}</td>
+                  <td>{{ data.text }}</td>
                 </tr>
             </tbody>
         </table>
